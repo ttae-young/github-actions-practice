@@ -1,0 +1,26 @@
+name: ENV_REF
+
+on:
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: '3.12'
+  APP_NAME: MyPythonApp
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Print Information
+        run: |
+          echo "Application: $APP_NAME"
+          echo "Python Version: $PYTHON_VERSION"
+          python --version
