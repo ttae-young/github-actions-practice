@@ -1,0 +1,15 @@
+name: Manual Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "This workflow was started manually"
+      - name: Check environment
+        run: |
+          pwd
+          ls -la
