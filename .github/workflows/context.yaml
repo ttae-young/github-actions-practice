@@ -1,0 +1,28 @@
+name: GitHub Context
+
+on:
+  workflow_dispatch:
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print GitHub information
+        env:
+          ACTOR: ${{ github.actor }}
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          echo "Actor: $ACTOR"
+          echo "Repository: $REPOSITORY"
+          echo "Branch: $BRANCH"
+          echo "Run ID: $RUN_ID"
+
+      - name: Print Runner information
+        env:
+          RUNNER_OS: ${{ runner.os }}
+          RUNNER_ARCH: ${{ runner.arch }}
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner Architecture: $RUNNER_ARCH"
