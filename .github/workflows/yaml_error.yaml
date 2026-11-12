@@ -1,0 +1,13 @@
+name: YAML Error
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo "Hello"
+       - name: Invalid indentation
+         run: echo "Error"
